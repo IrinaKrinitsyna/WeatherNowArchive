@@ -46,9 +46,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password' => 'Password',
+            'username' => 'Логин',
+            'email' => 'Почта',
+            'password' => 'Пароль',
             'authKey' => 'Auth Key',
             'accessToken' => 'Access Token',
         ];
@@ -119,7 +119,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public function validatePassword($password)
     {
-        return $this->password === $password;
+        return Yii::$app->getSecurity()->validatePassword($password,$this->password);
     }
 
     public function generateAuthKey()

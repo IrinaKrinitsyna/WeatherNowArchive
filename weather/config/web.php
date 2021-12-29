@@ -43,14 +43,25 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        'assetManager' => [
+            'bundles' => [
+                'kartik\form\ActiveFormAsset' => [
+                    'bsDependencyEnabled' => false // do not load bootstrap assets for a specific asset bundle
+                ],
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
+            // 'rules' => [
+            //     '' => 'site/login',
+            // ],
         ],
-        */
+    ],
+    'modules' => [
+        'gridview' =>  [
+             'class' => '\kartik\grid\Module'
+        ]
     ],
     'params' => $params,
 ];
